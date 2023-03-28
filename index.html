@@ -43,19 +43,27 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build_TOC.loader.js";
+      var loaderUrl = buildUrl + "/Build_toc.loader.js";
       var config = {
-        dataUrl: buildUrl + "/43a5272eacffe5dbb26e3442dd24f93d.data",
-        frameworkUrl: buildUrl + "/d38a0075937ba5deb68a1d73d28e63f8.js",
-        codeUrl: buildUrl + "/0de9e09bcb7eedce7de1b0b8b691c634.wasm",
+        dataUrl: buildUrl + "/Build_toc.data",
+        frameworkUrl: buildUrl + "/Build_toc.framework.js",
+        codeUrl: buildUrl + "/Build_toc.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "TED",
         productName: "Tiles On Chain",
-        productVersion: "0.0.3",
+        productVersion: "0.0.4",
         showBanner: unityShowBanner,
       };
 
+      // By default Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
+
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
 
         var meta = document.createElement('meta');
         meta.name = 'viewport';
